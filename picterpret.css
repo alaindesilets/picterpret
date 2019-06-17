@@ -1,0 +1,66 @@
+body, html
+{
+    width: 100%;
+    margin: 0;
+}
+
+#container{
+    background-color: ghostwhite;
+    width: 100vw;
+    height: 100vh;
+
+    display: inline-grid;
+    grid-template-columns: 7vw 43vw 43vw 7vw;
+    grid-template-rows: 10vh 40vh 40vh 10vh;
+    grid-gap: 1vh;
+}
+
+#upperLeft{
+    width: 100%;
+    background-color: lightpink;
+    border-radius: 10px;
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+
+    text-align: center;
+
+}
+
+#upperRight{
+    width: 100%;
+    background-color: lightblue;
+    border-radius: 10px;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+}
+
+#lowerLeft{
+     width: 100%;
+     background-color: #d9e3e6;
+     border-radius: 10px;
+     grid-column: 2 / span 1;
+     grid-row: 3 / span 1;
+ }
+
+#lowerRight{
+    width: 100%;
+    background-color: #ffdfe5;
+    border-radius: 10px;
+    grid-column: 3 / span 1;
+    grid-row: 3 / span 1;
+}
+
+#leftTextBoxContainer{
+    margin: 0 auto;
+    padding-top: 20%;
+
+}
+
+
+#leftTextBox{
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    border: none;
+    border-radius: 5px;
+    resize: both;
+}
