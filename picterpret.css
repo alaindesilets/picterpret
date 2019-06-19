@@ -58,9 +58,10 @@ body, html
 
 
 #leftTextBox{
-    font-size: 18px;
+    font-size: 24px;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     border: none;
     border-radius: 5px;
-    resize: both;
 }
+
+

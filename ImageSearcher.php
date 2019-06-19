@@ -2,12 +2,11 @@
 class ImageSearcher
 {
     public $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
-    public $accessKey;
+    public $accessKey = "9c0cb000da5a418095ae0d653222baf8";
     public $lang;
 
-    function __construct($lang, $azureKey)
+    function __construct($lang)
     {
-        $this->accessKey=$azureKey;
         $this->lang=$lang;
     }
 
@@ -64,45 +63,6 @@ class ImageSearcher
     }
 
 
-}
-
-class displayPage
-{
-    public $head =
-        "<!DOCTYPE html>
-        <html lang='en'>    
-        <head>
-            <title>picterpret</title>
-            <meta charset='utf-8'/>
-            <link rel='stylesheet' href='picterpret.css' type='text/css'>
-        </head>
-        <body>";
-
-    public $body =
-        "
-        <div id='container'>
-            <div id='upperLeft'>
-                <div id='leftTextBoxContainer'>
-                    <textarea id='leftTextBox' cols='40' rows='3'></textarea>
-                </div>
-            </div>
-            <div id='upperRight'></div>
-            <div id='lowerLeft'></div>
-            <div id='lowerRight'></div>
-        </div>
-        
-        
-      
-        ";
-
-    public $closing =
-        "</body>
-        </html>";
-
-    function displayContent()
-    {
-        echo($this->head . $this->body . $this->closing);
-    }
 }
 
 ?>
