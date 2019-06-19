@@ -11,7 +11,7 @@ class StringTranslator
     public $params;
 
     function __construct($sLang, $tLang)
-    {$this->params = "&to=" . strtolower($sLang) . "&to=" . strtolower($tLang);}
+    {$this->params = "&from=" . strtolower($sLang) . "&to=" . strtolower($tLang);}
 
     function translate($text)
     {
@@ -31,15 +31,15 @@ class StringTranslator
             $headers = "Content-type: application/json\r\n" .
                 "Content-length: " . strlen($content) . "\r\n" .
                 "Ocp-Apim-Subscription-Key: $key\r\n" .
+                "Ocp-Apim-Subscription-Region: canadacentral\r\n" .
                 "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
-            // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-            // http://php.net/manual/en/function.stream-context-create.php
             $options = array (
                 'http' => array (
                     'header' => $headers,
                     'method' => 'POST',
-                    'content' => $content
+                    'content' => $content,
+                    'ignore_errors' => true,
                 )
             );
             $context  = stream_context_create ($options);
@@ -49,23 +49,14 @@ class StringTranslator
 
 
         $requestBody = array (array ('Text' => $text,),);
-
         $content = json_encode($requestBody);
-
         $result = Translate ($this->host, $this->path, $this->key, $this->params, $content);
 
-        // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
-        // We want to avoid escaping any Unicode characters that result contains. See:
-        // http://php.net/manual/en/function.json-encode.php
-
-        $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-
-        return $json;
-
+        //Decoding the json file into an array and returning only the translation as a string
+        $jsonARRAY = json_decode($result, true);
+        $jsonARRAY = $jsonARRAY[0]['translations'][0]['text'];
+        return $jsonARRAY;
     }
-
-
-
 }
 
 
