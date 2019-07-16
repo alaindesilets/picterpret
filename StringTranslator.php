@@ -3,11 +3,9 @@ class StringTranslator
 {
     // NOTE: Be sure to uncomment the following line in your php.ini file.
     // ;extension=php_openssl.dll
-
     private $key = '4b709d313c17489bbe2cc41dc664e0ae';
     private $host = "https://api.cognitive.microsofttranslator.com";
     private $path = "/translate?api-version=3.0";
-
     public $params;
 
     function __construct($sLang, $tLang)
@@ -26,14 +24,12 @@ class StringTranslator
                 );
             }
         }
-
         function Translate ($host, $path, $key, $params, $content) {
             $headers = "Content-type: application/json\r\n" .
                 "Content-length: " . strlen($content) . "\r\n" .
                 "Ocp-Apim-Subscription-Key: $key\r\n" .
                 "Ocp-Apim-Subscription-Region: canadacentral\r\n" .
                 "X-ClientTraceId: " . com_create_guid() . "\r\n";
-
             $options = array (
                 'http' => array (
                     'header' => $headers,
@@ -44,20 +40,16 @@ class StringTranslator
             );
             $context  = stream_context_create ($options);
             $result = file_get_contents ($host . $path . $params, false, $context);
+            print_r($result);
             return $result;
         }
-
-
         $requestBody = array (array ('Text' => $text,),);
         $content = json_encode($requestBody);
         $result = Translate ($this->host, $this->path, $this->key, $this->params, $content);
-
         //Decoding the json file into an array and returning only the translation as a string
         $jsonARRAY = json_decode($result, true);
         $jsonARRAY = $jsonARRAY[0]['translations'][0]['text'];
         return $jsonARRAY;
     }
 }
-
-
 ?>

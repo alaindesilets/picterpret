@@ -2,7 +2,7 @@
 class ImageSearcher
 {
     public $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
-    public $accessKey = "9c0cb000da5a418095ae0d653222baf8";
+    public $accessKey = "fd2d758f159e4132a378b8462d8b235f";
     public $lang;
 
     function __construct($lang)
@@ -10,7 +10,7 @@ class ImageSearcher
         $this->lang=$lang;
     }
 
-    function search($keyword, $lang)
+    function search($keyword)
     {
 
         function BingWebSearch ($url, $key, $query) {
@@ -58,6 +58,8 @@ class ImageSearcher
         {
             array_unshift($imagesURLString, $imagesURL[$num]['contentUrl']);
         }
+
+        print_r($imagesURLString);
 
         return $imagesURLString;
     }
