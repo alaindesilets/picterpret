@@ -77,6 +77,7 @@ body, html
 
 #searchButton, #resetButton{
     margin-top: 2vh;
+    outline: none;
 }
 
 #resetButtonContainer{

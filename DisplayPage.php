@@ -17,6 +17,7 @@ class displayPage
             <link rel='stylesheet' href='picterpret.css' type='text/css'>
             <script src='picterpret.js'></script>
             <script src='imageBox.js'></script>
+            <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 
         </head>
         <body>";
@@ -45,7 +46,7 @@ class displayPage
                 
                 </div>
             </div>
-            <div id='searchButtonContainer'>
+            <div id='searchButtonContainer' onclick='retrieveString()'>
                 <div id='searchButton'>
                     <strong>SEARCH</strong>
                 </div>
@@ -72,5 +73,3 @@ class displayPage
         echo($this->head . $this->body . $this->closing);
     }
 }
-
-?>

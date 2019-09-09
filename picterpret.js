@@ -17,12 +17,72 @@
 //
 // let words = ["apple", "orange", "love"];
 
+//Variable handling the upperLeft string input
+let localStringUpperLeft;
 
-
-
-
+//Variables handling the imageBox delivery
 let obj = [];
 let pos = 0;
+
+function retrieveString()
+{
+    localStringUpperLeft = document.getElementsByClassName('fill-Width')[0].value;
+
+    displayImage(localStringUpperLeft);
+    traduceString(localStringUpperLeft);
+}
+
+function traduceString(string) {
+
+    function getResponse()
+    {
+        return $.ajax({
+            url: "ajaxTradHandler.php",
+            type: "POST",
+            // dataType: "json",
+            data: {tradString: string},
+            async: true,
+        });
+    }
+
+    function handleData(data)
+    {
+        document.getElementsByClassName('fill-Width')[1].value = data;
+    }
+
+    getResponse().done(handleData);
+}
+
+
+function displayImage(string)
+{
+    let images = [];
+    function getResponse()
+    {
+        return $.ajax({
+            url: "ajaxImgHandler.php",
+            type: "POST",
+            dataType: "json",
+            data: {tradString: string},
+            async: true,
+        });
+    }
+
+    function handleData(data)
+    {
+        images = data;
+        for(let i=0; i<data.length; i++)
+        {
+            console.log(data[i][0]);
+            console.log(data[i][1]);
+            createImageGridBoxDiv(data[i][0], data[i][1]);
+        }
+        // console.log(data);
+    }
+
+    getResponse().done(handleData);
+}
+
 
 function arrowListener(imageBox)
 {
@@ -46,9 +106,10 @@ function arrowListener(imageBox)
 }
 
 
-function createImageGridBoxDiv(boxID)
+function createImageGridBoxDiv(words, imgURLArr)
 {
-    obj.push(new imageBox(boxID, words[pos], imgURLArr[pos]));
+    obj.push(new imageBox('ImageBoxContainerFlexLeft', words, imgURLArr));
+
     arrowListener(obj[pos]);
     pos++;
 }

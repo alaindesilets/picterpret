@@ -33,6 +33,7 @@ class StopWords
         $wordarr = str_replace(str_split(',.!?'), "", $input);
         $wordarr = preg_split("/[\s]+/", $wordarr);
         $wordarr = array_diff($wordarr, $this->swords);
+        $wordarr = array_values($wordarr);
         return $wordarr;
 
     }

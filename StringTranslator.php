@@ -40,7 +40,6 @@ class StringTranslator
             );
             $context  = stream_context_create ($options);
             $result = file_get_contents ($host . $path . $params, false, $context);
-            print_r($result);
             return $result;
         }
         $requestBody = array (array ('Text' => $text,),);

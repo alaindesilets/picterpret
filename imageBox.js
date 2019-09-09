@@ -1,5 +1,6 @@
 function imageBox(boxID, word, imgURL)
 {
+        console.log('entered');
         this.boxID = boxID;
         this.word = word;
         this.imgURL = imgURL;
@@ -55,17 +56,6 @@ function imageBox(boxID, word, imgURL)
         this.divContainer.appendChild(this.divImgContainer);
         this.divContainer.appendChild(this.divArrowContainer);
         this.divContainer.appendChild(this.divTextContainer);
-
-
-        //EventListener
-        // let imgCopy = this.img, imgUrlCopy = this.imgURL, posCopy = this.currentPOS;
-        //
-        // this.leftArrContainer.addEventListener('click', function () {
-        //         imgCopy.setAttribute('src', eval(posCopy-1 >= 0) ? imgUrlCopy[eval(posCopy-1)] : 0);
-        // });
-        // this.rightArrContainer.addEventListener('click', function () {
-        //         imgCopy.setAttribute('src', eval(posCopy-1 <= imgUrlCopy.length-2) ? imgUrlCopy[eval(posCopy+1)] : 0);
-        // });
 
 
         document.getElementById(this.boxID).appendChild(this.divContainer);
