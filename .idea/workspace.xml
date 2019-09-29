@@ -2,58 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43bec99-32ea-495f-b48f-21546b5741e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/HTML/picterpret.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/eventListeners.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/languages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/listenerCSS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DisplayPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/DisplayPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ImageSearcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/ImageSearcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StopWords.php" beforeDir="false" afterPath="$PROJECT_DIR$/StopWords.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringTranslator.php" beforeDir="false" afterPath="$PROJECT_DIR$/StringTranslator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajaxImgHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajaxImgHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajaxTradHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajaxTradHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/imageBox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leftarrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/leftarrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/picterpret.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/picterpret.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/picterpret.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/picterpret.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rightarrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/rightarrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/StopWords.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/StopWordsLanguageNotExists.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/ar.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/bg.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/ca.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/cz.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/da.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/de.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/el.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/en.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/eo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/es.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/et.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/fi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/fr.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/hi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/hr.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/hu.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/id.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/it.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/ka.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/lt.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/lv.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/nl.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/no.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/pl.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/pt.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/ro.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/ru.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/sk.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/sv.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/tr.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/uk.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voku_stopwords/stopwords/vi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/picterpret.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/picterpret.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/picterpret.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/picterpret.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +54,7 @@
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/ajaxTradHandler.php">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="105">
@@ -115,17 +66,17 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/JS/eventListeners.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="375">
+                    <state relative-caret-position="150">
                       <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/JS/picterpret.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="105">
-                      <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+                    <state relative-caret-position="263">
+                      <caret line="124" column="25" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
                     </state>
                   </provider>
                 </entry>
@@ -133,8 +84,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/CSS/picterpret.css">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="299">
-                      <caret line="164" selection-start-line="164" selection-end-line="165" selection-end-column="24" />
+                    <state relative-caret-position="445">
+                      <caret line="358" column="33" selection-start-line="358" selection-start-column="33" selection-end-line="358" selection-end-column="33" />
                     </state>
                   </provider>
                 </entry>
@@ -174,7 +125,7 @@
                   <file pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/HTML/picterpret.html">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="245">
+                        <state relative-caret-position="321">
                           <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
                         </state>
                       </provider>
@@ -251,8 +202,9 @@
       <find>shows</find>
       <find>s</find>
       <find>showS</find>
-      <find>showSelection</find>
       <find>cursor</find>
+      <find>showSelection</find>
+      <find>fill</find>
     </findStrings>
     <replaceStrings>
       <replace>translate</replace>
@@ -314,12 +266,12 @@
         <option value="$PROJECT_DIR$/node_modules/stopword/lib/stopwords_zh.js" />
         <option value="$PROJECT_DIR$/JS/makelist.js" />
         <option value="$PROJECT_DIR$/JS/listenerCSS.js" />
-        <option value="$PROJECT_DIR$/JS/picterpret.js" />
         <option value="$PROJECT_DIR$/JS/languages.js" />
         <option value="$PROJECT_DIR$/JS/eventListeners.js" />
         <option value="$PROJECT_DIR$/HTML/picterpret.html" />
-        <option value="$PROJECT_DIR$/CSS/picterpret.css" />
         <option value="$PROJECT_DIR$/ajaxTradHandler.php" />
+        <option value="$PROJECT_DIR$/CSS/picterpret.css" />
+        <option value="$PROJECT_DIR$/JS/picterpret.js" />
       </list>
     </option>
   </component>
@@ -492,7 +444,7 @@
       <workItem from="1569543420972" duration="8917000" />
       <workItem from="1569552620061" duration="8770000" />
       <workItem from="1569603448927" duration="14744000" />
-      <workItem from="1569704065067" duration="42779000" />
+      <workItem from="1569704065067" duration="43583000" />
     </task>
     <task id="LOCAL-00001" summary="Trying to make Translator work">
       <created>1560962733413</created>
@@ -515,11 +467,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563291615364</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="The web app is nearly done. It is very fast!">
+      <created>1569748697310</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569748697310</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164160000" />
+    <option name="totallyTimeSpent" value="164964000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -587,7 +546,8 @@
     <MESSAGE value="Trying to make Translator work" />
     <MESSAGE value="Translator is now fully working and returning the translated string in the queried language." />
     <MESSAGE value="Interface nearly done, starting AJAX handling for search queries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interface nearly done, starting AJAX handling for search queries" />
+    <MESSAGE value="The web app is nearly done. It is very fast!" />
+    <option name="LAST_COMMIT_MESSAGE" value="The web app is nearly done. It is very fast!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/testing.php" />
@@ -861,13 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/picterpret.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JS/languages.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
@@ -875,24 +828,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/eventListeners.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/picterpret.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
+        <state relative-caret-position="321">
           <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CSS/picterpret.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="164" selection-start-line="164" selection-end-line="165" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -900,6 +839,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/eventListeners.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS/picterpret.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="358" column="33" selection-start-line="358" selection-start-column="33" selection-end-line="358" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/picterpret.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="124" column="25" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
         </state>
       </provider>
     </entry>

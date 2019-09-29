@@ -122,7 +122,7 @@ async function displayTraducedString(string){
 
 function stringToArray(stringUpperLeft){
     let stringAsArray = stringUpperLeft.toLowerCase()
-        .replace(/[.,!?]+/g, "").split(" ");
+        .replace(/[.,!?:;]+/g, "").split(" ");
     return stringAsArray.filter(x => !en.includes(x));
 }
 
