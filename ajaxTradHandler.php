@@ -6,13 +6,15 @@
  * Time: 12:25
  */
 
-require("StringTranslator.php");
+require_once("StringTranslator.php");
 
 $tradString = $_POST['tradString'];
+$sourceLang = $_POST['sourceLang'];
+$targetLang = $_POST['targetLang'];
+
 
 //Creating an instance of StringTranslator
-$sourceLang = "en";
-$targetLang = "fr";
+
 $strTranslator = new StringTranslator($sourceLang, $targetLang);
 
     //Testing the class/function

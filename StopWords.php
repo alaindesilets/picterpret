@@ -37,11 +37,6 @@ class StopWords
         return $wordarr;
 
     }
-
-
-
-
-
 }
 
 ?>

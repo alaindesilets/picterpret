@@ -1,0 +1,418 @@
+* {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+p {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+
+body, html
+{
+    width: 100%;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#container{
+    background-color: ghostwhite;
+    width: 100vw;
+    height: 100vh;
+
+    display: inline-grid;
+    grid-template-columns: 5vw 43vw 43vw 5vw;
+    grid-template-rows: 10vh 40vh 40vh 10vh;
+    grid-gap: 1vh;
+}
+
+#highest{
+    width: 100%;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    text-align: center;
+}
+
+#upperLeft{
+    width: 100%;
+    background-color: lightpink;
+    border-radius: 10px;
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    text-align: center;
+    display: inline-grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 4% 8% 2% 81% 5%;
+}
+
+#upperRight{
+    width: 100%;
+    background-color: lightblue;
+    border-radius: 10px;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+    text-align: center;
+    display: inline-grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 4% 8% 2% 81% 5%;
+}
+
+#lowerLeft{
+     width: 100%;
+     background-color: #d9e3e6;
+     border-radius: 10px;
+     grid-column: 2 / span 1;
+     grid-row: 3 / span 1;
+    text-align: center;
+ }
+
+#lowerRight{
+    width: 100%;
+    background-color: #ffdfe5;
+    border-radius: 10px;
+    grid-column: 3 / span 1;
+    grid-row: 3 / span 1;
+    text-align: center;
+}
+
+#translateButtonContainer:active, #resetButtonContainer:active{
+    color: grey;
+    background-color: white;
+}
+
+#translateButtonContainer{
+    width: 100%;
+    height: 60%;
+    color: white;
+    background-color: grey;
+    border-radius: 10px;
+    grid-column: 2 / span 1;
+    grid-row: 4 / span 1;
+    text-align: center;
+}
+
+#translateButton, #resetButton{
+    margin-top: 2vh;
+    outline: none;
+}
+
+#resetButtonContainer{
+    width: 100%;
+    height: 60%;
+    color: white;
+    background-color: grey;
+    border-radius: 10px;
+    grid-column: 3 / span 1;
+    grid-row: 4 / span 1;
+    text-align: center;
+}
+
+#picterpretLogoContainer{
+    margin: 0 auto;
+    padding-top: 2vh;
+}
+
+#picterpretLogo{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    padding-left: 47vw;
+    padding-top: 4vh;
+}
+
+.currentLanguage{
+    height: 100%;
+    width: fit-content;
+    text-align: center;
+    margin: 3px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+
+.languageWrapper{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    vertical-align: middle;
+    margin: 0 auto;
+
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+}
+
+.languageSelectorButton{
+    display: table-cell;
+    vertical-align: middle;
+    background-color: lavenderblush;
+    border: 2px transparent solid;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.languageSelectorButton:hover{
+    cursor: pointer;
+    border: 2px transparent solid;
+    border-radius: 4px;
+    /*background-color: black;*/
+    /*color: ghostwhite;*/
+}
+
+.menuItemContainer{
+    height: 100%;
+    display: table;
+    background-color: transparent;
+    border: 2px transparent solid;
+    border-radius: 4px;
+}
+
+.menuItem{
+    display: table-cell;
+    vertical-align: middle;
+    margin-left: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+
+}
+
+.menuItem:hover{
+    cursor: pointer;
+    background-color: ghostwhite;
+    border: 0px transparent solid;
+    border-radius: 5px;
+}
+
+.TextBoxContainerFlex{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+    visibility: visible;
+
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+
+    opacity: 1;
+}
+
+.TextBoxContainerFlexTransition{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+    visibility: hidden;
+
+    /*transition: opacity 2s;*/
+    /*-webkit-transition: opacity 2s;*/
+
+    opacity: 1;
+}
+
+.languageSelector{
+    width: 90%;
+    height: 100%;
+    display: inline-grid;
+    margin: 0 auto;
+    grid-template-columns: 100%;
+    /*grid-template-rows: repeat(22, 8%);*/
+    grid-auto-rows: 14%;
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+    visibility: hidden;
+    overflow: auto;
+
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+
+    opacity: 0;
+}
+
+.languageSelectorTransition{
+    width: 90%;
+    height: 100%;
+    display: inline-grid;
+    margin: 0 auto;
+    grid-template-columns: 100%;
+    /*grid-template-rows: repeat(22, 8%);*/
+    grid-auto-rows: 14%;
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+    visibility: visible;
+    overflow: auto;
+
+
+    /*transition: opacity 2s;*/
+    /*-webkit-transition: opacity 2s;*/
+
+    opacity: 1;
+}
+
+
+.fill-Width{
+    flex: 1;
+    resize: none;
+    font-size: 28px;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.fill-Width:focus{
+    outline: transparent;
+}
+
+.ImageBoxContainer{
+    position: relative;
+    margin: 0 auto;
+    top: 10%;
+    height: 90%;
+    width: 90%;
+}
+
+.ImageBoxContainerFlex{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40vw;
+    height: 34vh;
+    background-color: transparent;
+    margin: 0;
+    display: inline-grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-auto-rows: 47%;
+    grid-gap: 2%;
+    overflow: auto;
+    visibility: visible;
+
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+
+    opacity: 1;
+}
+
+.ImageBoxContainerFlexTransition{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40vw;
+    height: 34vh;
+    background-color: transparent;
+    margin: 0;
+    display: inline-grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-auto-rows: 47%;
+    grid-gap: 2%;
+    overflow: auto;
+    visibility: hidden;
+
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+
+    opacity: 1;
+}
+
+.ImageBoxSelectionContainerFlex{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40vw;
+    height: 34vh;
+    background-color: transparent;
+    margin: 0;
+    display: inline-grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-auto-rows: 47%;
+    grid-gap: 2%;
+    overflow: auto;
+    visibility: hidden;
+
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+
+    opacity: 0;
+}
+
+.ImageBoxSelectionContainerFlexTransition{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40vw;
+    height: 34vh;
+    background-color: transparent;
+    margin: 0;
+    display: inline-grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-auto-rows: 47%;
+    grid-gap: 2%;
+    overflow: auto;
+    visibility: visible;
+
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+
+    opacity: 1;
+}
+
+.divContainer{
+    width: 90%;
+    height: 100%;
+    display: inline-grid;
+    grid-template-rows: 85% 15%;
+    grid-gap: 1px;
+    border: 4px transparent solid;
+    border-radius: 5px;
+}
+
+.divContainerSelection{
+    width: 97%;
+    height: 97%;
+    border: 4px transparent solid;
+    border-radius: 5px;
+}
+
+.divContainer:focus-within{
+    border: 4px black solid;
+    border-radius: 2px;
+    outline: none;
+}
+
+.divImgContainer{
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    width: 100%;
+    height: 100%;
+    margin-right: 0px;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.divTextContainer {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.boxImage{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    z-index: 99;
+}
