@@ -18,22 +18,11 @@ let previousRightTextBoxReturnValue = '';
 
 async function retrieveString()
 {
-    localStringUpperRight = document.getElementsByClassName('fill-Width')[1].value;
-
-    if(previousRightTextBoxReturnValue!=="" && localStringUpperRight!==previousRightTextBoxReturnValue){
-        resetFields();
-        stringAsArray = stringToArray(localStringUpperRight);
-
-        displayTraducedString(localStringUpperRight, 0);
-
-    }
-    else{
-        localStringUpperLeft = document.getElementsByClassName('fill-Width')[0].value;
+     localStringUpperLeft = document.getElementsByClassName('fill-Width')[0].value;
         resetFields();
         stringAsArray = stringToArray(localStringUpperLeft);
         stringAsArrayTraduced = await wordMatchTraduction(stringAsArray);
         displayTraducedString(localStringUpperLeft, 1);
-    }
 
     console.log("ja;mes");
     createLowerImageDivs( "Left", stringAsArray, stringAsArray);
@@ -117,14 +106,14 @@ async function getImageUrlArrayForSpecificWord(string, arrayPos){
 
 }
 
-async function traduceString(string, textboxorigin) {
+async function traduceString(string) {
     const response = await fetch('/stringtranslator', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
             tradString: string,
-            sourceLang: (textboxorigin==0) ? currentLanguageLeft[0]:currentLanguageRight[0],
-            targetLang: (textboxorigin==0) ? currentLanguageRight[0]:currentLanguageLeft[0]
+            sourceLang: currentLanguageRight[0],
+            targetLang: currentLanguageRight[0]
         })
     });
 
@@ -132,10 +121,9 @@ async function traduceString(string, textboxorigin) {
 
 }
 
-async function displayTraducedString(string, textboxorigin){
-    traduceString(string, textboxorigin).then(data => {
-        document.getElementsByClassName('fill-Width')[textboxorigin].value = data;
-        previousRightTextBoxReturnValue = data;
+async function displayTraducedString(string){
+    traduceString(string).then(data => {
+        document.getElementsByClassName('fill-Width')[1].value = data;
     });
 
 }
