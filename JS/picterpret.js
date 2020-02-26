@@ -1,5 +1,6 @@
 //Variable handling the string input
 let localStringUpperLeft;
+let localStringUpperRight;
 let stringAsArray = [];
 let stringAsArrayTraduced = [];
 
@@ -13,23 +14,39 @@ let objSelectionRight = [];
 const languageObjectInstance = new languageObject();
 let currentLanguageLeft = ['en', languageObjectInstance.en[0]];
 let currentLanguageRight = ['fr', languageObjectInstance.fr[0]];
+let previousRightTextBoxReturnValue = '';
 
 async function retrieveString()
 {
-    resetFields();
-    localStringUpperLeft = document.getElementsByClassName('fill-Width')[0].value;
-    displayTraducedString(localStringUpperLeft);
-    stringAsArray = stringToArray(localStringUpperLeft);
-    stringAsArrayTraduced = await wordMatchTraduction(stringAsArray);
+    localStringUpperRight = document.getElementsByClassName('fill-Width')[1].value;
 
+    if(previousRightTextBoxReturnValue!=="" && localStringUpperRight!==previousRightTextBoxReturnValue){
+        resetFields();
+        stringAsArray = stringToArray(localStringUpperRight);
+
+        displayTraducedString(localStringUpperRight, 0);
+
+    }
+    else{
+        localStringUpperLeft = document.getElementsByClassName('fill-Width')[0].value;
+        resetFields();
+        stringAsArray = stringToArray(localStringUpperLeft);
+        stringAsArrayTraduced = await wordMatchTraduction(stringAsArray);
+        displayTraducedString(localStringUpperLeft, 1);
+    }
+
+    console.log("ja;mes");
     createLowerImageDivs( "Left", stringAsArray, stringAsArray);
     createLowerImageDivs("Right", stringAsArray, stringAsArrayTraduced);
+    console.log("ja;mes");
+
     checkScreenSizeStatus();
     populateLowerImageDivs();
 
 }
 
 function populateLowerImageDivs(){
+    console.log(stringAsArray);
     for(let i = 0; i< stringAsArray.length; i++){
         getImageUrlArrayForSpecificWord(stringAsArray[i], i);
     }
@@ -80,44 +97,47 @@ function populateImageBoxSelectionContainer(word, imgObjArray){
 }
 
 
-function getImage(string)
+async function getImage(string)
 {
-        return $.ajax({
-            url: "ajaxImgHandler.php",
-            type: "POST",
-            dataType: "json",
-            data: {tradString: string},
-            async: true,
-        });
+    const response = await fetch('/imagesearcher', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imgTerm: string })
+    });
+
+    return await response.json();
 }
 
 
 async function getImageUrlArrayForSpecificWord(string, arrayPos){
-    let imageObj = (await getImage(string))[0][1];
+    let imageObj = await getImage(string);
     imageBoxSetImages(objLeft[arrayPos].divImgContainer.firstChild, imageObj[0], string);
     imageBoxSetImages(objRight[arrayPos].divImgContainer.firstChild, imageObj[0], string);
     populateImageBoxSelectionContainer(string, imageObj);
 
 }
 
+async function traduceString(string, textboxorigin) {
+    const response = await fetch('/stringtranslator', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            tradString: string,
+            sourceLang: (textboxorigin==0) ? currentLanguageLeft[0]:currentLanguageRight[0],
+            targetLang: (textboxorigin==0) ? currentLanguageRight[0]:currentLanguageLeft[0]
+        })
+    });
 
-async function traduceString(string) {
-        return $.ajax({
-            url: "ajaxTradHandler.php",
-            type: "POST",
-            // dataType: "json",
-            data: {
-                tradString: string,
-                sourceLang: currentLanguageLeft[0],
-                targetLang: currentLanguageRight[0]
-            },
-            async: true,
-        });
+    return await response.text();
+
 }
 
-async function displayTraducedString(string){
-    let traducedString = await traduceString(string);
-    document.getElementsByClassName('fill-Width')[1].value = traducedString;
+async function displayTraducedString(string, textboxorigin){
+    traduceString(string, textboxorigin).then(data => {
+        document.getElementsByClassName('fill-Width')[textboxorigin].value = data;
+        previousRightTextBoxReturnValue = data;
+    });
+
 }
 
 function stringToArray(stringUpperLeft){

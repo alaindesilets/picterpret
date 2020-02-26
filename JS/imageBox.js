@@ -1,6 +1,5 @@
 function imageBox(boxID, divName, displayName)
 {
-        console.log(divName, displayName);
         this.boxID = boxID;
         this.divName = divName;
         this.displayName = displayName;

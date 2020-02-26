@@ -1,0 +1,13 @@
+{
+  "name": "picterpret",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ms-rest-azure": "^3.0.0"
+  },
+  "devDependencies": {
+    "@azure/cognitiveservices-imagesearch": "^3.0.0",
+    "request": "^2.88.2",
+    "uuid": "^7.0.1"
+  }
+}

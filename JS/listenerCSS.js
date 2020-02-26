@@ -4,7 +4,6 @@ function checkScreenSizeStatus(){
     let innerHeigth = window.innerHeight;
 
     let ratioWidthHeight = innerWidth/innerHeigth;
-    console.log(ratioWidthHeight);
 
     if(ratioWidthHeight<1){
         changeImageBoxFormat(1);
@@ -36,7 +35,7 @@ function changeColor() {
 function createLanguageList() {
     Object.entries(languageObjectInstance).forEach(
         ([key, value]) => {
-            console.log(key, value);
+            // console.log(key, value);
         });
 }
 

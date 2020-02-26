@@ -49,12 +49,8 @@ function showSelection(word, boxID){
 
 function showLanguageMenu(rightLeftNumericalValue){
     function listenForOutsideClick(e){
-        console.log(e.target);
         if(!(e.target.className == 'menuItem' || e.target.className == 'menuItemContainer'))
         {
-
-
-            console.log('entereda');
             switchVisibility(languageSelector, 1);
             switchVisibility(textBoxContainer, 1);
             document.addEventListener('click', listenForInsideClick, false);
@@ -64,11 +60,8 @@ function showLanguageMenu(rightLeftNumericalValue){
 
     }
     function listenForInsideClick(e){
-        console.log(e.target);
         if (e.target.className == 'menuItemContainer' || e.target.className == 'menuItem') {
-            console.log(e.target);
 
-            console.log('enteredb');
             let chosenLanguage = (e.target.id).substring(0,2);
             let targetId = e.target.id;
 
@@ -83,10 +76,6 @@ function showLanguageMenu(rightLeftNumericalValue){
             // eval('currentLanguage' + rightLeft + " = languageObjectInstance." + chosenLanguage + "[0];");
 
 
-            console.log(currentLanguageLeft);
-            console.log(currentLanguageRight);
-
-
             document.getElementsByClassName('currentLanguage')[rightLeftNumericalValue].innerHTML
                 = (rightLeftNumericalValue==0) ? currentLanguageLeft[1]:currentLanguageRight[1];
 
@@ -95,7 +84,6 @@ function showLanguageMenu(rightLeftNumericalValue){
 
             document.removeEventListener('click', listenForInsideClick, false);
             document.removeEventListener('click', listenForOutsideClick, false);
-
         }
 
     }
@@ -110,8 +98,6 @@ function showLanguageMenu(rightLeftNumericalValue){
     document.addEventListener('click', listenForInsideClick, false);
 
 }
-
-
 
 function switchVisibility(id, pictureOrMenu) {
     let elem = document.getElementById(id);
@@ -157,3 +143,4 @@ function resetVariables(){
     objSelectionLeft = [];
     objSelectionRight = [];
 }
+
