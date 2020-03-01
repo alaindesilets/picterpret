@@ -18,8 +18,8 @@
 //            <meta charset='utf-8'/>
 //            <link rel='stylesheet' href='CSS/picterpret.css' type='text/css'>
 //            <script src='JS/picterpret.js'></script>
-//            <script src='JS/imageBox.js'></script>
-//            <script src=\"JS/languages.js\"></script>
+//            <script src='JS/ImageBox.js'></script>
+//            <script src=\"JS/languageObject.js\"></script>
 //            <script src='JS/listenerCSS.js'></script>
 //            <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 //            <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>

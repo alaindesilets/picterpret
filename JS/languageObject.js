@@ -28,6 +28,14 @@ class languageObject{
         this.vi = ["Vietnamese", vi];
         this.zh = ["Chinese Simplified", zh];
     }
+
+    getLangAsString(langId){
+        let re = new RegExp(/[a-z]{2}/);
+        console.log(langId);
+        if (re.test(langId)){
+            return eval("this." + langId)[0];
+        }
+    }
 }
 
 

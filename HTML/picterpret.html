@@ -5,13 +5,17 @@
         <title>picterpret</title>
         <meta charset='utf-8'/>
         <link rel='stylesheet' href='../CSS/picterpret.css' type='text/css'>
-        <script src='../JS/languages.js'></script>
+        <link rel="stylesheet" href="../CSS/spin.css">
+        <script src='../JS/languageObject.js'></script>
         <script src='../JS/picterpret.js'></script>
-        <script src='../JS/imageBox.js'></script>
+        <script src='../JS/ImageBox.js'></script>
         <script src='../JS/listenerCSS.js'></script>
-        <script src='../JS/eventListeners.js'></script>
-        <script src='https:ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-        <script src='https:ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+        <script src='../JS/UIEventHandler.js'></script>
+        <script src="../JS/translationHandler.js"></script>
+        <script src="../JS/imageSearchHandler.js"></script>
+        <script src="../JS/generateLanguageSelectionHTML.js"></script>
+        <script src="../JS/spin.js"></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 
     </head>
 </head>
@@ -23,8 +27,14 @@
 
         <div id='upperLeft'>
             <div class="languageWrapper">
-                <div class='languageSelectorButton' onclick="showLanguageMenu(0)">
+                <div class='languageSelectorButton' onclick="toggleLanguageMenu(0)">
                     <div id="currentLanguageLeft" class="currentLanguage">English</div>
+                </div>
+                <div id="switchLanguageButton" onclick="switchLanguage()">
+                    <svg id="switchsvg" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve" >
+                        <g><path d="M45,290h825.5L720.3,440.3c-13.7,13.7-13.7,35.8,0,49.5c6.8,6.8,15.8,10.3,24.7,10.3s17.9-3.4,24.7-10.3l210-210c13.7-13.7,13.7-35.8,0-49.5l-210-210c-13.7-13.7-35.8-13.7-49.5,0c-13.7,13.7-13.7,35.8,0,49.5L870.5,220H45c-19.3,0-35,15.7-35,35C10,274.3,25.7,290,45,290z"/><path d="M955,710H129.5l150.3-150.3c13.7-13.7,13.7-35.8,0-49.5c-13.7-13.7-35.8-13.7-49.5,0l-210,210c-13.7,13.7-13.7,35.8,0,49.5l210,210c6.8,6.8,15.8,10.3,24.7,10.3s17.9-3.4,24.7-10.3c13.7-13.7,13.7-35.8,0-49.5L129.5,780H955c19.3,0,35-15.7,35-35C990,725.7,974.3,710,955,710z"/></g>
+                    </svg>
+                    <div id="switchLanguage">Switch</div>
                 </div>
             </div>
 
@@ -33,104 +43,14 @@
             </div>
 
             <div id='languageSelectorLeft' class='languageSelector'>
-                <div id='afMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='afMenuItemLeft' class='menuItem'>Afrikaans</div>
-                </div>
-
-                <div id='arMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='arMenuItemLeft' class='menuItem'>Modern Standard Arab</div>
-                </div>
-
-                <div id='brMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='brMenuItemLeft' class='menuItem'>Brazilian Portuguese</div>
-                </div>
-
-                <div id='daMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='daMenuItemLeft' class='menuItem'>Danish</div>
-                </div>
-
-                <div id='deMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='deMenuItemLeft' class='menuItem'>German</div>
-                </div>
-
-                <div id='enMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='enMenuItemLeft' class='menuItem'>English</div>
-                </div>
-
-                <div id='esMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='esMenuItemLeft' class='menuItem'>Spanish</div>
-                </div>
-
-                <div id='fiMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='fiMenuItemLeft' class='menuItem'>Finnish</div>
-                </div>
-
-                <div id='frMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='frMenuItemLeft' class='menuItem'>French</div>
-                </div>
-
-                <div id='heMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='heMenuItemLeft' class='menuItem'>Hebrew</div>
-                </div>
-
-                <div id='hiMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='hiMenuItemLeft' class='menuItem'>Hindi</div>
-                </div>
-
-                <div id='idMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='idMenuItemLeft' class='menuItem'>Indonesian</div>
-                </div>
-
-                <div id='itMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='itMenuItemLeft' class='menuItem'>Italian</div>
-                </div>
-
-                <div id='jaMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='jaMenuItemLeft' class='menuItem'>Japanese</div>
-                </div>
-
-                <div id='nlMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='nlMenuItemLeft' class='menuItem'>Dutch</div>
-                </div>
-
-                <div id='noMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='noMenuItemLeft' class='menuItem'>Norwegian</div>
-                </div>
-
-                <div id='paMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='paMenuItemLeft' class='menuItem'>Polish</div>
-                </div>
-
-                <div id='plMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='plMenuItemLeft' class='menuItem'>Portuguese</div>
-                </div>
-
-                <div id='ptMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='ptMenuItemLeft' class='menuItem'>Punjabi Gurmukhi</div>
-                </div>
-
-                <div id='ruMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='ruMenuItemLeft' class='menuItem'>Russian</div>
-                </div>
-
-                <div id='svMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='svMenuItemLeft' class='menuItem'>Swedish</div>
-                </div>
-
-                <div id='viMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='viMenuItemLeft' class='menuItem'>Vietnamese</div>
-                </div>
-
-                <div id='zhMenuItemContainerLeft' class='menuItemContainer'>
-                    <div id='zhMenuItemLeft' class='menuItem'>Chinese Simplified</div>
-                </div>
+                <script>document.getElementById('languageSelectorLeft').innerHTML = createLanguageList("Left")</script>
             </div>
         </div>
 
 
         <div id='upperRight'>
             <div class="languageWrapper">
-                <div class='languageSelectorButton' onclick="showLanguageMenu(1)">
+                <div class='languageSelectorButton' onclick="toggleLanguageMenu(1)">
                     <div id="currentLanguageRight" class="currentLanguage">French</div>
                 </div>
             </div>
@@ -140,114 +60,24 @@
             </div>
 
             <div id='languageSelectorRight' class='languageSelector'>
-                <div id='afMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='afMenuItemRight' class='menuItem'>Afrikaans</div>
-                </div>
-
-                <div id='arMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='arMenuItemRight' class='menuItem'>Modern Standard Arab</div>
-                </div>
-
-                <div id='brMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='brMenuItemRight' class='menuItem'>Brazilian Portuguese</div>
-                </div>
-
-                <div id='daMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='daMenuItemRight' class='menuItem'>Danish</div>
-                </div>
-
-                <div id='deMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='deMenuItemRight' class='menuItem'>German</div>
-                </div>
-
-                <div id='enMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='enMenuItemRight' class='menuItem'>English</div>
-                </div>
-
-                <div id='esMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='esMenuItemRight' class='menuItem'>Spanish</div>
-                </div>
-
-                <div id='fiMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='fiMenuItemRight' class='menuItem'>Finnish</div>
-                </div>
-
-                <div id='frMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='frMenuItemRight' class='menuItem'>French</div>
-                </div>
-
-                <div id='heMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='heMenuItemRight' class='menuItem'>Hebrew</div>
-                </div>
-
-                <div id='hiMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='hiMenuItemRight' class='menuItem'>Hindi</div>
-                </div>
-
-                <div id='idMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='idMenuItemRight' class='menuItem'>Indonesian</div>
-                </div>
-
-                <div id='itMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='itMenuItemRight' class='menuItem'>Italian</div>
-                </div>
-
-                <div id='jaMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='jaMenuItemRight' class='menuItem'>Japanese</div>
-                </div>
-
-                <div id='nlMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='nlMenuItemRight' class='menuItem'>Dutch</div>
-                </div>
-
-                <div id='noMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='noMenuItemRight' class='menuItem'>Norwegian</div>
-                </div>
-
-                <div id='paMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='paMenuItemRight' class='menuItem'>Polish</div>
-                </div>
-
-                <div id='plMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='plMenuItemRight' class='menuItem'>Portuguese</div>
-                </div>
-
-                <div id='ptMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='ptMenuItemRight' class='menuItem'>Punjabi Gurmukhi</div>
-                </div>
-
-                <div id='ruMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='ruMenuItemRight' class='menuItem'>Russian</div>
-                </div>
-
-                <div id='svMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='svMenuItemRight' class='menuItem'>Swedish</div>
-                </div>
-
-                <div id='viMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='viMenuItemRight' class='menuItem'>Vietnamese</div>
-                </div>
-
-                <div id='zhMenuItemContainerRight' class='menuItemContainer'>
-                    <div id='zhMenuItemRight' class='menuItem'>Chinese Simplified</div>
-                </div>
+                <script>document.getElementById('languageSelectorRight').innerHTML = createLanguageList("Right")</script>
             </div>
         </div>
         <div id='lowerLeft'>
-            <div class='ImageBoxContainer'>
+            <div id="ImageBoxContainerLeft" class='ImageBoxContainer'>
                 <div id='ImageBoxContainerFlexLeft' class='ImageBoxContainerFlex'></div>
             </div></div>
         <div id='lowerRight'>
-            <div class='ImageBoxContainer'>
+            <div id="ImageBoxContainerRight" class='ImageBoxContainer'>
                 <div id='ImageBoxContainerFlexRight' class='ImageBoxContainerFlex'></div>
             </div></div>
-        <div id='translateButtonContainer' onclick='retrieveString()'>
+        <div id='translateButtonContainer' onclick='sendTranslationRequest()'>
             <div id='translateButton'>
                 <strong>TRANSLATE</strong>
             </div>
         </div>
 
-        <div id='resetButtonContainer' onclick='resetFields()'>
+        <div id='resetButtonContainer' onclick='resetFields(true)'>
             <div id='resetButton'>
                 <strong>RESET</strong>
             </div>

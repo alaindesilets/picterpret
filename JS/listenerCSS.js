@@ -2,15 +2,10 @@
 function checkScreenSizeStatus(){
     let innerWidth = window.innerWidth;
     let innerHeigth = window.innerHeight;
-
     let ratioWidthHeight = innerWidth/innerHeigth;
 
-    if(ratioWidthHeight<1){
-        changeImageBoxFormat(1);
-    }
-    else{
-        changeImageBoxFormat(0);
-    }
+    if(ratioWidthHeight<1){ changeImageBoxFormat(1);}
+    else{ changeImageBoxFormat(0); }
 }
 
 function changeImageBoxFormat(ratio){
@@ -20,44 +15,11 @@ function changeImageBoxFormat(ratio){
     elems.push(document.getElementsByClassName('ImageBoxContainerFlexTransition'));
     elems.push(document.getElementsByClassName('ImageBoxSelectionContainerFlexTransition'));
 
-
     elems.forEach(element => {
         Array.from(element).forEach(obj => {obj.style.gridTemplateColumns =
-            (ratio==1) ? "47% 47%":"23% 23% 23% 23%";});
+            (ratio==1) ? "50% 50%":"25% 25% 25% 25%";});
     });
 }
-
-function changeColor() {
-    
-}
-
-
-function createLanguageList() {
-    Object.entries(languageObjectInstance).forEach(
-        ([key, value]) => {
-            // console.log(key, value);
-        });
-}
-
-function createListElement(){
-
-}
-
-// function makeList(leftRight){
-//     Object.entries(languageObjectInstance).forEach(
-//         ([key, value]) => {
-//             console.log(
-//                 "<div id='"
-//                 + key.toString()+ "MenuItemContainer" + leftRight + "' class='menuItemContainer'>"
-//                 + "\n    <div id='"
-//                 + key.toString()+ "MenuItem" + leftRight + "' class='menuItem'>"
-//                 + "" +value[0]
-//                 + "</div>\n"
-//                 + "</div>\n");
-//         });
-// }
-
-
 
 //Runtime
 checkScreenSizeStatus();
