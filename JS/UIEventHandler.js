@@ -167,8 +167,7 @@ function changeView() {
             leftSubCont.style.visibility = "hidden";
             rightCont.style.visibility = "visible";
             rightSubCont.style.visibility = "visible";
-
-            rightCont.style.gridColumn = "2 / span 2";
+            rightCont.style.gridColumn = "0 / span 0";
             viewObj = 2;
             break;
 
