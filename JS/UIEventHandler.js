@@ -155,17 +155,19 @@ function changeView() {
     switch(viewObj){
         case 0:
             leftCont.style.gridColumn = "2 / span 2";
-            rightCont.style.visibility = "hidden !important;";
-            rightSubCont.style.visibility = "hidden !important;";
+            rightCont.style.gridColumn = "";
+            rightCont.style.visibility = "hidden";
+            rightSubCont.style.visibility = "hidden";
 
             viewObj = 1;
             break;
 
         case 1:
-            leftCont.style.visibility = "hidden !important;";
-            leftSubCont.style.visibility = "hidden !important;";
+            leftCont.style.visibility = "hidden";
+            leftSubCont.style.visibility = "hidden";
             rightCont.style.visibility = "visible";
             rightSubCont.style.visibility = "visible";
+            leftCont.style.gridColumn = "";
 
             viewObj = 2;
             break;
