@@ -148,24 +148,33 @@ function changeViewSize(minmax) {
 function changeView() {
     let leftCont = document.getElementById("lowerLeft");
     let rightCont = document.getElementById("lowerRight");
+    let leftSubCont = document.getElementById("ImageBoxContainerLeft");
+    let rightSubCont = document.getElementById("ImageBoxContainerRight");
+
 
 
     switch(viewObj){
         case 0:
             leftCont.style.gridColumn = "2 / span 2";
             rightCont.style.visibility = "hidden";
+            rightSubCont.style.visibility = "hidden";
+
             viewObj = 1;
             break;
 
         case 1:
             leftCont.style.visibility = "hidden";
+            leftSubCont.style.visibility = "hidden";
             rightCont.style.visibility = "visible";
+            rightSubCont.style.visibility = "visible";
+
             rightCont.style.gridColumn = "2 / span 2";
             viewObj = 2;
             break;
 
         case 2:
             leftCont.style.visibility = "visible";
+            leftSubCont.style.visibility = "hidden";
             leftCont.style.gridColumn = "2 / span 1";
             rightCont.style.gridColumn = "3 / span 1";
             viewObj = 0;
