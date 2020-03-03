@@ -152,22 +152,20 @@ function changeView() {
     let rightSubCont = document.getElementById("ImageBoxContainerRight");
 
 
-
     switch(viewObj){
         case 0:
             leftCont.style.gridColumn = "2 / span 2";
-            rightCont.style.visibility = "hidden";
-            rightSubCont.style.visibility = "hidden";
+            rightCont.style.visibility = "hidden !important;";
+            rightSubCont.style.visibility = "hidden !important;";
 
             viewObj = 1;
             break;
 
         case 1:
-            leftCont.style.visibility = "hidden";
-            leftSubCont.style.visibility = "hidden";
+            leftCont.style.visibility = "hidden !important;";
+            leftSubCont.style.visibility = "hidden !important;";
             rightCont.style.visibility = "visible";
             rightSubCont.style.visibility = "visible";
-            rightCont.style.gridColumn = "0 / span 2";
 
             viewObj = 2;
             break;
