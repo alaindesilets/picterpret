@@ -3,15 +3,12 @@ const request = require('request');
 let https = require('https');
 
 class ImageSearcher {
-    //Instance variables
-    key = "fd2d758f159e4132a378b8462d8b235f";
-    host = "api.cognitive.microsoft.com";
-    path = "/bing/v7.0/images/search";
-    numberResults = '10';
-    options;
-
     //Constructor
     constructor(term) {
+        this.key = "fd2d758f159e4132a378b8462d8b235f";
+        this.host = "api.cognitive.microsoft.com";
+        this.path = "/bing/v7.0/images/search";
+        this.numberResults = '10';
         this.options = {
             method: 'GET',
             hostname: this.host,
@@ -23,6 +20,7 @@ class ImageSearcher {
             },
             json: true,
         };
+
     }
 
     //translate() function

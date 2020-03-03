@@ -1,11 +1,19 @@
 <!DOCTYPE html>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159541258-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-159541258-1');
+</script>
 <html lang="en">
 <head>
     <head>
         <title>picterpret</title>
         <meta charset='utf-8'/>
         <link rel='stylesheet' href='../CSS/picterpret.css' type='text/css'>
-        <link rel="stylesheet" href="../CSS/spin.css">
         <script src='../JS/languageObject.js'></script>
         <script src='../JS/picterpret.js'></script>
         <script src='../JS/ImageBox.js'></script>
@@ -14,7 +22,6 @@
         <script src="../JS/translationHandler.js"></script>
         <script src="../JS/imageSearchHandler.js"></script>
         <script src="../JS/generateLanguageSelectionHTML.js"></script>
-        <script src="../JS/spin.js"></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 
     </head>
@@ -31,7 +38,7 @@
                     <div id="currentLanguageLeft" class="currentLanguage">English</div>
                 </div>
                 <div id="switchLanguageButton" onclick="switchLanguage()">
-                    <svg id="switchsvg" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve" >
+                    <svg id="switchsvg" x="0px" y="0px" viewBox="0 0 1000 1000" preserveAspectRatio="none" enable-background="new 0 0 1000 1000" xml:space="preserve" >
                         <g><path d="M45,290h825.5L720.3,440.3c-13.7,13.7-13.7,35.8,0,49.5c6.8,6.8,15.8,10.3,24.7,10.3s17.9-3.4,24.7-10.3l210-210c13.7-13.7,13.7-35.8,0-49.5l-210-210c-13.7-13.7-35.8-13.7-49.5,0c-13.7,13.7-13.7,35.8,0,49.5L870.5,220H45c-19.3,0-35,15.7-35,35C10,274.3,25.7,290,45,290z"/><path d="M955,710H129.5l150.3-150.3c13.7-13.7,13.7-35.8,0-49.5c-13.7-13.7-35.8-13.7-49.5,0l-210,210c-13.7,13.7-13.7,35.8,0,49.5l210,210c6.8,6.8,15.8,10.3,24.7,10.3s17.9-3.4,24.7-10.3c13.7-13.7,13.7-35.8,0-49.5L129.5,780H955c19.3,0,35-15.7,35-35C990,725.7,974.3,710,955,710z"/></g>
                     </svg>
                     <div id="switchLanguage">Switch</div>
@@ -63,6 +70,23 @@
                 <script>document.getElementById('languageSelectorRight').innerHTML = createLanguageList("Right")</script>
             </div>
         </div>
+
+        <div id="imageControlContainer">
+            <div id="maximizeButtonContainer" class="languageSelectorButton" onclick="changeViewSize(0)">
+                <div id="maximizeButton">+</div>
+            </div>
+            <div id="minimizeButtonContainer" class="languageSelectorButton" onclick="changeViewSize(1)">
+                <div id="minimizeButton">-</div>
+            </div>
+            <div id="viewPortButtonContainer" class="languageSelectorButton" onclick="changeView()">
+                <div id="viewPortButton">
+                    <svg id="viewsvg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+                        <g><path d="M661.8,183h189.8v166.8H661.8V183z"/><path d="M149.9,183h189.8v166.8H149.9V183z"/><path d="M407.9,183h185.6v166.8H407.9V183z"/><path d="M661.8,416.6h189.8v166.8H661.8V416.6L661.8,416.6z"/><path d="M149.9,416.6h189.8v166.8H149.9V416.6L149.9,416.6z"/><path d="M407.9,416.6h185.6v166.8H407.9V416.6L407.9,416.6z"/><path d="M661.8,650.1h189.8V817H661.8V650.1z"/><path d="M149.9,650.1h189.8V817H149.9V650.1z"/><path d="M407.9,650.1h185.6V817H407.9V650.1z"/><path d="M913.6,44.6H773.4H10v641.5V879c0,42.1,34.2,76.4,76.4,76.4h140.2H990V313.8V120.9C989.9,78.8,955.8,44.6,913.6,44.6z M913.6,313.8v565h-687v0.1H86.4V686l0,0V120.9h687.1l0,0h140.2L913.6,313.8L913.6,313.8z"/></g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
         <div id='lowerLeft'>
             <div id="ImageBoxContainerLeft" class='ImageBoxContainer'>
                 <div id='ImageBoxContainerFlexLeft' class='ImageBoxContainerFlex'></div>

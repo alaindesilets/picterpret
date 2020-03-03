@@ -1,5 +1,5 @@
 //Variables
-
+let viewObj = 0;
 
 let opts = {
     lines: 13, // The number of lines to draw
@@ -107,6 +107,70 @@ function selectImage(leftRight, word, url) {
 
 function imageSelectionToggle(word, leftright){
     switchVisibility("ImageBoxContainerFlex" + leftright, "ImageBoxSelectionContainerFlex" + leftright + word);
+}
+
+
+//Changes the format of the ImageBox
+function changeViewSize(minmax) {
+    let imageboxes = document.getElementsByClassName("ImageBoxContainerFlex");
+    let currCol = document.getElementsByClassName("ImageBoxContainerFlex")[0].style.gridTemplateColumns;
+    let currRow = window.getComputedStyle(document.getElementsByClassName("ImageBoxContainerFlex")[0], null).gridAutoRows;
+    console.log(currCol + "\n" + currRow);
+    Array.from(imageboxes).forEach(elem => {
+        if(minmax===0){
+            //Switch statements used in case other view formats were wanted in the future
+            switch (currCol) {
+                case "25% 25% 25% 25%":
+                    elem.style.gridTemplateColumns = "50% 50%";
+                    break;
+            }
+            switch (currRow){
+                case "50%":
+                    if(currCol!=="25% 25% 25% 25%") {elem.style.gridAutoRows = "100%"; }
+            }
+        }
+
+        else {
+            switch (currCol) {
+                case "50% 50%":
+                    if(currRow==="50%") elem.style.gridTemplateColumns = "25% 25% 25% 25%";
+                    break;
+            }
+            switch (currRow){
+                case "100%":
+                    console.log(currCol);
+                    elem.style.gridAutoRows = "50%";
+            }
+        }
+    });
+}
+
+function changeView() {
+    let leftCont = document.getElementById("lowerLeft");
+    let rightCont = document.getElementById("lowerRight");
+
+
+    switch(viewObj){
+        case 0:
+            leftCont.style.gridColumn = "2 / span 2";
+            rightCont.style.visibility = "hidden";
+            viewObj = 1;
+            break;
+
+        case 1:
+            leftCont.style.visibility = "hidden";
+            rightCont.style.visibility = "visible";
+            rightCont.style.gridColumn = "2 / span 2";
+            viewObj = 2;
+            break;
+
+        case 2:
+            leftCont.style.visibility = "visible";
+            leftCont.style.gridColumn = "2 / span 1";
+            rightCont.style.gridColumn = "3 / span 1";
+            viewObj = 0;
+            break;
+    }
 }
 
 

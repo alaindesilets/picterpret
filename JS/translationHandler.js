@@ -1,6 +1,6 @@
 //Sends a call to the node server and returns a string representing the translation
 async function traduceString(string) {
-    const response = await fetch('/stringtranslator', {
+    const response = await fetch('https:///stringtranslator', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({

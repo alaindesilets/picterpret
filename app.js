@@ -23,4 +23,4 @@ app.post('/imagesearcher', function (req, res) {
     imgSearch.search(result => res.send(result));
 });
 
-app.listen(3000, () => console.log('Started on port 3000!'));
+app.listen(8080, () => console.log('Started on port 3000!'));

@@ -2,13 +2,10 @@ const request = require('request');
 const uuidv4 = require('uuid/v4');
 
 class StringTranslator {
-    //Instance variables
-    key = "4b709d313c17489bbe2cc41dc664e0ae";
-    host = "https://api.cognitive.microsofttranslator.com";
-    options;
-
     //Constructor
     constructor(tradString, sLang, tLang) {
+        this.key = "4b709d313c17489bbe2cc41dc664e0ae";
+        this.host = "https://api.cognitive.microsofttranslator.com";
         this.options = {
             method: 'POST',
             baseUrl: this.host,
@@ -28,6 +25,7 @@ class StringTranslator {
             }],
             json: true,
         };
+
     }
 
     //translate() function
