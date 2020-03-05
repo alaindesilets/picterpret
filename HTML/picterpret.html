@@ -10,21 +10,30 @@
 </script>
 <html lang="en">
 <head>
-    <head>
-        <title>picterpret</title>
-        <meta charset='utf-8'/>
-        <link rel='stylesheet' href='../CSS/picterpret.css' type='text/css'>
-        <script src='../JS/languageObject.js'></script>
-        <script src='../JS/picterpret.js'></script>
-        <script src='../JS/ImageBox.js'></script>
-        <script src='../JS/listenerCSS.js'></script>
-        <script src='../JS/UIEventHandler.js'></script>
-        <script src="../JS/translationHandler.js"></script>
-        <script src="../JS/imageSearchHandler.js"></script>
-        <script src="../JS/generateLanguageSelectionHTML.js"></script>
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <title>picterpret</title>
+    <meta charset='utf-8'/>
 
-    </head>
+    <link rel="apple-touch-icon" sizes="180x180" href="../Images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../Images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../Images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel='stylesheet' href='../CSS/picterpret.css' type='text/css'>
+
+    <script src='../JS/languageObject.js'></script>
+    <script src='../JS/picterpret.js'></script>
+    <script src='../JS/ImageBox.js'></script>
+    <script src='../JS/listenerCSS.js'></script>
+    <script src='../JS/UIEventHandler.js'></script>
+    <script src="../JS/translationHandler.js"></script>
+    <script src="../JS/imageSearchHandler.js"></script>
+    <script src="../JS/generateLanguageSelectionHTML.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
+
 </head>
 <body>
     <div id='container'>
@@ -32,7 +41,12 @@
             <div id='picterpretLogo'>PICTERPRET</div>
         </div>
 
-        <div id='upperLeft'>
+        <div id="dragbar" draggable="true" ondrag="dragGrid(event)">
+
+        </div>
+
+
+        <div id='upperLeft' class="upperGrid">
             <div class="languageWrapper">
                 <div class='languageSelectorButton' onclick="toggleLanguageMenu(0)">
                     <div id="currentLanguageLeft" class="currentLanguage">English</div>
@@ -55,7 +69,7 @@
         </div>
 
 
-        <div id='upperRight'>
+        <div id='upperRight' class="upperGrid">
             <div class="languageWrapper">
                 <div class='languageSelectorButton' onclick="toggleLanguageMenu(1)">
                     <div id="currentLanguageRight" class="currentLanguage">French</div>
@@ -87,14 +101,8 @@
             </div>
         </div>
 
-        <div id='lowerLeft'>
-            <div id="ImageBoxContainerLeft" class='ImageBoxContainer'>
-                <div id='ImageBoxContainerFlexLeft' class='ImageBoxContainerFlex'></div>
-            </div></div>
-        <div id='lowerRight'>
-            <div id="ImageBoxContainerRight" class='ImageBoxContainer'>
-                <div id='ImageBoxContainerFlexRight' class='ImageBoxContainerFlex'></div>
-            </div></div>
+        <div id='lowerLeft'><div id='ImageBoxContainerLeft' class='ImageBoxContainer'><div id='ImageBoxContainerFlexLeft' class='ImageBoxContainerFlex'></div></div></div>
+        <div id='lowerRight'><div id='ImageBoxContainerRight' class='ImageBoxContainer'><div id='ImageBoxContainerFlexRight' class='ImageBoxContainerFlex'></div></div></div>
         <div id='translateButtonContainer' onclick='sendTranslationRequest()'>
             <div id='translateButton'>
                 <strong>TRANSLATE</strong>

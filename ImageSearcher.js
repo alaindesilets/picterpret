@@ -1,6 +1,5 @@
 'use strict';
-const request = require('request');
-let https = require('https');
+import https from "https";
 
 class ImageSearcher {
     //Constructor
@@ -8,7 +7,7 @@ class ImageSearcher {
         this.key = "fd2d758f159e4132a378b8462d8b235f";
         this.host = "api.cognitive.microsoft.com";
         this.path = "/bing/v7.0/images/search";
-        this.numberResults = '10';
+        this.numberResults = '20';
         this.options = {
             method: 'GET',
             hostname: this.host,
@@ -43,4 +42,4 @@ class ImageSearcher {
     }
 }
 
-module.exports.ImageSearcher = ImageSearcher;
+export {ImageSearcher}

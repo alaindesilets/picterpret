@@ -1,6 +1,5 @@
-const request = require('request');
-const uuidv4 = require('uuid/v4');
-
+import v4 from "uuid/dist/v4.js"
+import request from "request";
 class StringTranslator {
     //Constructor
     constructor(tradString, sLang, tLang) {
@@ -18,7 +17,7 @@ class StringTranslator {
                 'Ocp-Apim-Subscription-Key': this.key,
                 "Ocp-Apim-Subscription-Region": "canadacentral",
                 'Content-type': 'application/json',
-                'X-ClientTraceId': uuidv4().toString()
+                'X-ClientTraceId': v4().toString()
             },
             body: [{
                 'text': tradString
@@ -29,7 +28,11 @@ class StringTranslator {
     }
 
     //translate() function
-    translate(cb){ request(this.options, function(err, res, body){ cb(body[0]['translations'][1]['text']); });}
+    translate(cb){
+        request(this.options, function(err, res, body){
+            cb(body[0]['translations'][1]['text']);
+        });
+    }
 }
 
-module.exports.StringTranslator = StringTranslator;
+export {StringTranslator}

@@ -1,13 +1,18 @@
 {
+  "type": "module",
   "name": "picterpret",
   "version": "1.0.0",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
-    "ms-rest-azure": "^3.0.0"
+    "got": "^10.6.0",
+    "ms-rest-azure": "^3.0.0",
+    "query-string": "^6.11.1"
   },
   "devDependencies": {
     "@azure/cognitiveservices-imagesearch": "^3.0.0",
     "request": "^2.88.2",
-    "uuid": "^7.0.1"
+    "uuid": "^7.0.2",
+    "uuidv4": "^6.0.5"
   }
 }

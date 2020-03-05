@@ -775,6 +775,7 @@ const fi = [
 
 const fr = ['être', 'avoir', 'faire',
     'a',
+    'si',
     'au',
     'aux',
     'avec',

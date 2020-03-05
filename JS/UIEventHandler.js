@@ -1,66 +1,34 @@
-//Variables
-let viewObj = 0;
+//___________________________________________________VARIABLES______________________________________________________
 
-let opts = {
-    lines: 13, // The number of lines to draw
-    length: 38, // The length of each line
-    width: 17, // The line thickness
-    radius: 45, // The radius of the inner circle
-    scale: 1, // Scales overall size of the spinner
-    corners: 1, // Corner roundness (0..1)
-    color: '#ffffff', // CSS color or array of colors
-    fadeColor: 'transparent', // CSS color or array of colors
-    speed: 1, // Rounds per second
-    rotate: 0, // The rotation offset
-    animation: 'spinner-line-fade-quick', // The CSS animation name for the lines
-    direction: 1, // 1: clockwise, -1: counterclockwise
-    zIndex: 2e9, // The z-index (defaults to 2000000000)
-    className: 'spinner', // The CSS class to assign to the spinner
-    top: '50%', // Top position relative to parent
-    left: '50%', // Left position relative to parent
-    shadow: '0 0 1px transparent', // Box-shadow for the lines
-    position: 'absolute' // Element positioning
+//VARIABLES:
+let currentView = {
+    left: {
+        status: false,
+        selectDiv: null
+    },
+    right: {
+        status: false,
+        selectDiv: null,
+    }
 };
 
-// let target = document.getElementById('foo');
-// let spinner = new Spinner(opts).spin(target);
+let viewModeObj = 0;
 
 
+
+//___________________________________________________FUNCTIONS______________________________________________________
+
+//FUNCTIONS:
+//!!!!!!!!!!  ---  LANGUAGE SELECTION HANDLING --- !!!!!!!!!!!!!
 //Toggle language selection menu
 function toggleLanguageMenu(leftRight){
     switchVisibility(getLR("TextBoxContainerFlex", leftRight), getLR("languageSelector", leftRight));
 }
 
-//Switch both languages and updates UI accordingly
-function switchLanguage(){
-    //Switch languages
-    let leftLang = currentLanguage[0][0];
-    setLanguage(0, currentLanguage[1][0]);
-    setLanguage(1, leftLang);
-
-    //Switch current text inputs
-    let leftBox = document.getElementsByClassName('fill-Width')[0];
-    let rightBox = document.getElementsByClassName('fill-Width')[1];
-    let leftText = leftBox.value;
-    leftBox.value = rightBox.value;
-    rightBox.value = leftText;
-
-    resetVariables();
-    console.log(url);
-
-    for(let i = 0; i<2; i++){
-        removeChilds(document.getElementsByClassName('ImageBoxContainerFlex')[1-i]);
-        for(let y = 0; y< url[i].length; y++){
-            createEmptyImageBoxContainerFlex((i===1 ? "Left" : "Right"), url[i][y][0]);
-            createEmptyImageBoxSelectionContainerFlex((i===1 ? "Left" : "Right"), url[i][y][0], y);
-            processImageArrayResponse((i===1 ? "Left" : "Right"), url[i][y][0], url[i][y][1], y)
-        }
-    }
-
-    let left_urlswap = url[0];
-    url[0] = url[1];
-    url[1] = left_urlswap;
-    console.log(url);
+//Selector event for a language button press -> updates the language using setLanguage and closes menu
+function selectLanguage(leftRight, chosenLanguage){
+    setLanguage(leftRight, chosenLanguage);
+    switchVisibility(getLR("TextBoxContainerFlex", leftRight), getLR("languageSelector", leftRight));
 }
 
 //Changes the language and updates the UI
@@ -70,52 +38,35 @@ function setLanguage(leftRight, chosenLanguage) {
     document.getElementsByClassName('currentLanguage')[leftRight].innerHTML = languageString;
 }
 
-//Selector event for a language button press -> updates the language using setLanguage and closes menu
-function selectLanguage(leftRight, chosenLanguage){
-    setLanguage(leftRight, chosenLanguage);
-    switchVisibility(getLR("TextBoxContainerFlex", leftRight), getLR("languageSelector", leftRight));
+
+
+//!!!!!!!!!!  ---  IMAGE SELECTION HANDLING --- !!!!!!!!!!!!!
+//Toggles the ImageSelection View for the left or right ImageBox
+function imageSelectionToggle(word, leftRight){
+    let mainImgBoxDiv = "ImageBoxContainerFlex" + leftRight;
+    let selectiondiv = "ImageBoxSelectionContainerFlex" + leftRight + word;
+    setCurrentView(leftRight, true, selectiondiv);
+    switchVisibility(mainImgBoxDiv, selectiondiv);
 }
 
-//Returns the string + "Left" if index = 0 / "Right" if index = 1
-function getLR(div, index) {
-    return (div + ((index===0) ? "Left":"Right"));
-}
-
-//Switches an element's visibility by id
-function switchVisibility(...id) {
-    let elem;
-    id.forEach(value => {
-        console.log(value);
-        elem = document.getElementById(value);
-        if(!(/Transition/).test(elem.className)){
-            elem.className = elem.className + 'Transition';
-        }
-        else{
-            elem.className = elem.className.replace('Transition', "");
-        }
-    });
-}
-
-function selectImage(leftRight, word, url) {
-
+//Updates the Main ImageBox container with the chosen image and quit the Selection View
+function setSelectionImage(leftRight, word, url) {
     document.getElementById("image" + leftRight + word).setAttribute("src", url);
+    setCurrentView(leftRight, false, null);
+
     switchVisibility("ImageBoxContainerFlex" + leftRight, "ImageBoxSelectionContainerFlex" + leftRight + word);
-
 }
 
 
 
-function imageSelectionToggle(word, leftright){
-    switchVisibility("ImageBoxContainerFlex" + leftright, "ImageBoxSelectionContainerFlex" + leftright + word);
-}
-
-
+//!!!!!!!!!!  ---  VIEW MODIFIER --- !!!!!!!!!!!!!
 //Changes the format of the ImageBox
 function changeViewSize(minmax) {
+    if(objLeft.length===0){return;}
     let imageboxes = document.getElementsByClassName("ImageBoxContainerFlex");
     let currCol = document.getElementsByClassName("ImageBoxContainerFlex")[0].style.gridTemplateColumns;
     let currRow = window.getComputedStyle(document.getElementsByClassName("ImageBoxContainerFlex")[0], null).gridAutoRows;
-    console.log(currCol + "\n" + currRow);
+    // console.log(currCol + "\n" + currRow);
     Array.from(imageboxes).forEach(elem => {
         if(minmax===0){
             //Switch statements used in case other view formats were wanted in the future
@@ -145,79 +96,239 @@ function changeViewSize(minmax) {
     });
 }
 
+//Changes the format of the app to focus on left or right ImageBox
 function changeView() {
+    if(objLeft.length===0){return;}
     let leftCont = document.getElementById("lowerLeft");
     let rightCont = document.getElementById("lowerRight");
+    let upperLeft = document.getElementById("upperLeft");
+    let upperRight = document.getElementById("upperRight");
     let leftSubCont = document.getElementById("ImageBoxContainerLeft");
     let rightSubCont = document.getElementById("ImageBoxContainerRight");
 
 
-    switch(viewObj){
-        case 0:
-            leftCont.style.gridColumn = "2 / span 2";
-            rightCont.style.gridColumn = "";
-            rightCont.style.visibility = "hidden";
-            rightSubCont.style.visibility = "hidden";
+    function setParams(leftBgCol, rightBgCol, leftVis, rightVis, leftGrid, rightGrid, viewModel) {
+        upperLeft.style.backgroundColor = leftBgCol;
+        upperRight.style.backgroundColor = rightBgCol;
 
-            viewObj = 1;
+        leftCont.style.backgroundColor = (viewModel === 0) ? "#dcefff":"#2c90ff";
+        rightCont.style.backgroundColor = (viewModel === 0) ? "#dcefff":"#2c90ff";
+
+        leftCont.style.visibility = leftVis;
+        leftSubCont.style.visibility = leftVis;
+        rightCont.style.visibility = rightVis;
+        rightSubCont.style.visibility = rightVis;
+        leftCont.style.gridColumn = leftGrid;
+        rightCont.style.gridColumn = rightGrid;
+        if(currentView.left.status) {
+            document.getElementById(currentView.left.selectDiv).style.visibility = leftVis;
+        }
+        if(currentView.right.status) {
+            document.getElementById(currentView.right.selectDiv).style.visibility = rightVis;
+        }
+        viewModeObj = viewModel;
+    }
+
+    switch(viewModeObj){
+        case 2:
+            setParams("#2c90ff", "#2c90ff","visible", "visible", "2 / span 1", "4 / span 1", 0);
+
+            break;
+
+        case 0:
+            setParams("#2c90ff", "#dcefff", "visible", "hidden","2 / span 3", "", 1);
             break;
 
         case 1:
-            leftCont.style.visibility = "hidden";
-            leftSubCont.style.visibility = "hidden";
-            rightCont.style.visibility = "visible";
-            rightSubCont.style.visibility = "visible";
-            leftCont.style.gridColumn = "";
-
-            viewObj = 2;
+            setParams("#dcefff", "#2c90ff", "hidden", "visible", "", "2 / span 3", 2);
             break;
+    }
 
-        case 2:
-            leftCont.style.visibility = "visible";
-            leftSubCont.style.visibility = "hidden";
-            leftCont.style.gridColumn = "2 / span 1";
-            rightCont.style.gridColumn = "3 / span 1";
-            viewObj = 0;
-            break;
+
+}
+
+//Switches an element's visibility by id
+function switchVisibility(...id) {
+    let elem;
+    id.forEach(value => {
+        elem = document.getElementById(value);
+        if(!(/Transition/).test(elem.className)){
+            elem.className = elem.className + 'Transition';
+        }
+        else{
+            elem.className = elem.className.replace('Transition', "");
+        }
+    });
+}
+
+//Switch both languages and updates UI accordingly
+function switchLanguage(){
+    //Switch languages
+    let leftLang = currentLanguage[0][0];
+    setLanguage(0, currentLanguage[1][0]);
+    setLanguage(1, leftLang);
+
+    //Switch current text inputs
+    let leftBox = document.getElementsByClassName('fill-Width')[0];
+    let rightBox = document.getElementsByClassName('fill-Width')[1];
+    let leftText = leftBox.value;
+    leftBox.value = rightBox.value;
+    rightBox.value = leftText;
+
+    resetVariables(false);
+
+    let left_urlswap = url[0];
+    url[0] = url[1];
+    url[1] = left_urlswap;
+
+    // console.log(url);
+
+    for(let i = 0; i<2; i++){
+        let lr = ((i === 0) ? "Left":"Right");
+        console.log(i);
+        removeChilds(document.getElementById("lower" + lr), lr);
+        url[i].forEach((item, index) => {
+            createEmptyImageBoxContainerFlex(lr, item[0]);
+            createEmptyImageBoxSelectionContainerFlex(lr, item[0], index);
+            processImageArrayResponse(lr, item[0], item[1], index);
+        });
+            // createEmptyImageBoxSelectionContainerFlex(((1-i)===1 ? "Left" : "Right"), url[(1-i)][1][0], (1-i));
+            // processImageArrayResponse(((1-i)===1 ? "Left" : "Right"), url[(1-i)][1][0], url[(1-i)][1][1], (1-i))
+
+    }
+
+
+}
+
+//Function that changes the grid size from the hidden drag bar
+function dragGrid(event) {
+    let screenHeight = window.innerHeight;
+    let currHieght = event.clientY;
+    let uprow =  Math.floor((currHieght / screenHeight * 100)) - 8 ;
+    let downrow = 100 - uprow - 18;
+
+    if(uprow>20 && downrow>20){
+        document.getElementById("container").style.gridTemplateRows = (
+            "8% " + uprow.toString() + "% " + " 1% " + downrow.toString() + "% " + "8%"
+        );
     }
 }
 
 
 
-//Reset all fields
+//!!!!!!!!!!  ---  UTILITIES --- !!!!!!!!!!!!!
+//Reset all fields in the DOM
 function resetFields(clearUpperLeft) {
-    resetVariables();
+    resetVariables(true);
 
-    if (clearUpperLeft) document.getElementsByClassName('fill-Width')[0].value = "";
+    if (clearUpperLeft) { document.getElementsByClassName('fill-Width')[0].value = ""; }
     document.getElementsByClassName('fill-Width')[1].value = "";
-    removeChilds(document.getElementsByClassName('ImageBoxContainerFlex')[0]);
-    removeChilds(document.getElementsByClassName('ImageBoxContainerFlex')[1]);
+    removeChilds(document.getElementById("lowerLeft"), "Left");
+    removeChilds(document.getElementById("lowerRight"), "Right");
 }
 
-function removeChilds(domNode) {
-    while(domNode.lastChild){
-        domNode.removeChild(domNode.lastChild);
-    }
+//Remvovs all childs of target node
+function removeChilds(domNode, leftRight) {
+
+    domNode.removeChild(domNode.firstChild);
+
+    let container = document.createElement("DIV");
+    container.className = "ImageBoxContainer";
+    container.id = "ImageBoxContainer" + leftRight;
+
+    let containerFlex = document.createElement("DIV");
+    containerFlex.className = "ImageBoxContainerFlex";
+    containerFlex.id = "ImageBoxContainerFlex" + leftRight;
+
+    container.appendChild(containerFlex);
+    domNode.appendChild(container);
 }
 
-function resetVariables(){
+//Resets necessary variables
+function resetVariables(urlSwitch){
     localStringUpperLeft;
     stringAsArray = [];
     stringAsArrayTraduced = [];
-    url = [[],[]];
     objLeft = [];
     objRight = [];
     objSelectionLeft = [];
     objSelectionRight = [];
+    if(urlSwitch) { url = [[],[]]; }
+
+    // currentView = {
+    //     left: {
+    //         status: false,
+    //         selectDiv: null
+    //     },
+    //     right: {
+    //         status: false,
+    //         selectDiv: null,
+    //     }
+    // };
 }
 
+//Returns the string + "Left" if index = 0 / "Right" if index = 1
+function getLR(div, index) {
+    return (div + ((index===0) ? "Left":"Right"));
+}
+
+//Sets the currentView objects
+function setCurrentView(div, view, selectionDiv) {
+    if (div==="Left") {
+        currentView.left.status = view;
+        currentView.left.selectDiv = selectionDiv;
+    }
+    else {
+        currentView.right.status = view;
+        currentView.right.selectDiv = selectionDiv;
+    }
+}
+
+//Returns the appropriate currentView object
+function getCurrentView(div) {
+    return (div==="Left") ? currentView.left:currentView.right;
+}
+
+
+
+//!!!!!!!!!!  ---  USERINPUT EVENT HANDLING --- !!!!!!!!!!!!!
+//Processes a keyPress for enter button
 function processKey(e){
     if (e.keyCode === 13){
+        e.preventDefault();
         sendTranslationRequest();
     }
 }
 
+//Processes all clicks to check if target is outside of ImageBox
+function processExternalClickImageSelection(e) {
+    let elem = e.toElement;
+    while (elem.parentElement.tagName!=="BODY"){
+        if(elem.id==="lowerLeft" || elem.id==="lowerRight" || elem.id==="imageControlContainer"){
+            return;
+        }
+        elem = elem.parentElement;
+    }
+    closeAllSelection()
+}
 
+//Closes all ImageBox Selections if applicable
+function closeAllSelection() {
+    ["Left", "Right"].forEach(elem =>{
+        if(getCurrentView(elem).status){
+            switchVisibility("ImageBoxContainerFlex" + elem, getCurrentView(elem).selectDiv);
+            setCurrentView(elem, 0, null);
+        }
+    });
+}
+
+
+
+
+//____________________________________________________RUNTIME_______________________________________________________
 
 //RUNTIME
 document.addEventListener("keypress", processKey);
+document.addEventListener("click", (e) => { processExternalClickImageSelection(e) });
+
+

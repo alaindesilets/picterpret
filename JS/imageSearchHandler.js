@@ -1,7 +1,7 @@
 //Sends a call to the node server and returns an array with image urls
 async function getImage(string)
 {
-    const response = await fetch('/imagesearcher', {
+    const response = await fetch('https://picterpret.com/imagesearcher', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ imgTerm: string })
@@ -34,7 +34,7 @@ function processImageArrayResponse(leftRight, string, imageObj, arrayPos){
 
 //Inserts the 8 images in each word's ImageBoxSelectionContainer
 function populateImageBoxSelectionContainer(leftRight, word, imgObjArray, i){
-    for(let y = 0; y<8; y++) {
+    for(let y = 0; y<20; y++) {
         getImageBoxObj(leftRight, 1)[i][y].imageBoxSelectionSetImages(imgObjArray[y], word, y);
     }
 }
@@ -51,7 +51,7 @@ function createEmptyImageBoxSelectionContainerFlex(leftRight, word, arrayPos){
     div.id = 'ImageBoxSelectionContainerFlex' + leftRight + word;
     document.getElementById('ImageBoxContainer' + leftRight).appendChild(div);
     getImageBoxObj(leftRight, 1)[arrayPos] = [];
-    for(let y = 0; y<8; y++) {
+    for(let y = 0; y<20; y++) {
         getImageBoxObj(leftRight, 1)[arrayPos].push(new ImageBoxSelection(leftRight, word, getImageBoxObj(leftRight, 0)));
     }
 }

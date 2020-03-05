@@ -71,7 +71,7 @@ class ImageBoxSelection extends AbstractImageBoxTemplate{
                 //Add direct function to select an image with the appropriate url
                 this.divContainer.setAttribute(
                     'onclick', (
-                        'selectImage(\"'+ this.leftRight + "\", \"" +
+                        'setSelectionImage(\"'+ this.leftRight + "\", \"" +
                         this.word + "\", \"" + this.img.src +  "\");"
                     )
                 );
