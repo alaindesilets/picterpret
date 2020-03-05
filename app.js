@@ -16,7 +16,6 @@ app.get('/', (req, res) => { res.sendFile(__dirname + '/HTML/picterpret.html')})
 
 //Route to handle StringTranslator requests
 app.post('/stringtranslator', function (req, res) {
-    console.log(req.body);
     let strTrans = new StringTranslator(req.body.tradString, req.body.sourceLang, req.body.targetLang);
     strTrans.translate(result => {
         res.send(result)
@@ -29,4 +28,4 @@ app.post('/imagesearcher', function (req, res) {
     imgSearch.search(result => res.send(result));
 });
 
-app.listen(8080, () => console.log('Started on port 3000!'));
+app.listen(3010, () => console.log('Started on port 3000!'));
