@@ -1,0 +1,38 @@
+//
+// This file defines standardized icons for specific FRENCH words
+// and expressions.
+//
+// Note that the elements of the 'words' array are regular expressions
+//
+
+// Actions
+{"words": ["regarder", "voir"], "image": "actions/look.png"}
+
+// Family
+{"words": ["soeurs{1}"], "image": "family/sister.jpg"}
+{"words": ["famille"], "image": "family/family.jpg"}
+
+// People
+{"words": ["je", "moi", "mon", "mien(ne){1}"], "image": "people/me.png"}
+{"words": ["tu", "toi", "ton", "ta", "tien(s|nne)"], "image": "you.png"}
+{"words": ["nous", "n[oô]tre", "nos"], "image": "people/we.jpeg"}
+{"words": ["vous", "v[oô]tre"], "image": "people/we.jpeg"}
+
+// Social interaction
+{"words": ["rencontr.*", "enchantée{1}"], "image": "meet.jpeg"}
+{"words": ["rencontres{1}", "meetings{1}"], "image": "meeting.jpeg"}
+
+// Time
+{"words": ["lundi"], "image": "monday.png"}
+{"words": ["mardo"], "image": "tuesday.png"}
+{"words": ["mercredi"], "image": "wednesday.png"}
+{"words": ["jeudi"], "image": "thursday.jpg"}
+{"words": ["vendredi"], "image": "friday.jpg"}
+{"words": ["samedi"], "image": "saturday.jpg"}
+{"words": ["dimanche"], "image": "sunday.jpg"}
+{"words": ["semaines{1}", "semaines"], "image": "week.png"}
+{"words": ["mois"], "image": "month.png"}
+{"words": ["fins{1} de semaine", "weekends{1}"], "image": "weekend.png"}
+
+// Ignore
+// {"words": ["monday"], "image": null}

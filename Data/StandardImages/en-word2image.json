@@ -1,0 +1,37 @@
+//
+// This file defines standardized icons for specific FRENCH words
+// and expressions.
+//
+// Note that the elements of the 'words' array are regular expressions
+///
+
+// Actions
+{"words": ["look", "see"], "image": "actions/look.png"}
+
+// Family
+{"words": ["sister", "sisters"], "image": "family/sister.jpg"}
+{"words": ["family"], "image": "family/family.jpg"}
+
+// People
+{"words": ["me", "my", "mine"], "image": "people/me.png"}
+{"words": ["we", "our"], "image": "people/we.jpeg"}
+{"words": ["you", "your", "yours"], "image": "you.png"}
+
+// Social interaction
+{"words": ["meet"], "image": "meet.jpeg"}
+{"words": ["meeting"], "image": "meeting.jpeg"}
+
+// Time
+{"words": ["monday"], "image": "monday.png"}
+{"words": ["tuesday"], "image": "tuesday.png"}
+{"words": ["wednesday"], "image": "wednesday.png"}
+{"words": ["thursday"], "image": "thursday.jpg"}
+{"words": ["friday"], "image": "friday.jpg"}
+{"words": ["saturday"], "image": "saturday.jpg"}
+{"words": ["sunday"], "image": "sunday.jpg"}
+{"words": ["week"], "image": "week.png"}
+{"words": ["month"], "image": "month.png"}
+{"words": ["weekend"], "image": "weekend.png"}
+
+// Ignore
+{"words": ["let's"], "image": null}
